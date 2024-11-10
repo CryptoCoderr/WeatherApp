@@ -53,7 +53,7 @@ function Home() {
   return (
     <div>
       {/* Header */}
-      <div className="bg-gray-600 text-white py-10">
+      <div className="bg-gray-500 text-white py-10">
         <div className="containerkws">
           <div className="flex justify-between">
             <div className="font-bold">GoHighLevel</div>
@@ -119,7 +119,7 @@ function Home() {
 
       {/* Weather details */}
       {weatherDetails && (
-        <div className="mt-5">
+        <div className="my-5 ">
           <div className="containerkws">
             <div className="text-red-500">
               {new Date(weatherDetails.dt * 1000).toLocaleString()}
