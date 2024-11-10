@@ -15,8 +15,8 @@ function Home() {
 
     try {
       const apiUrl = id
-        ? `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=5796abbde9106b7da4febfae8c44c232&units=metric`
-        : `https://api.openweathermap.org/data/2.5/find?q=${query}&appid=5796abbde9106b7da4febfae8c44c232&units=metric`;
+        ? `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
+        : `https://api.openweathermap.org/data/2.5/find?q=${query}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`;
 
       const response = await axios.get(apiUrl);
 
