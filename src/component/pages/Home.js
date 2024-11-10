@@ -10,8 +10,9 @@ function Home() {
 
   const fetchWeatherData = async (query, id = null) => {
     if (!query && !id) return;
-    if (process.env.REACT_APP_WEATHER_API_KEY) {
+    if (!process.env.REACT_APP_WEATHER_API_KEY) {
       alert("Api key not found");
+      setLoading(false);
       return;
     }
 
@@ -27,7 +28,12 @@ function Home() {
       if (id) {
         setWeatherDetails(response.data);
       } else {
-        setserach_data(response.data.list);
+        if (response.data.list && response.data.list.length > 0) {
+          setserach_data(response.data.list);
+        } else {
+          alert("City not found...");
+          setserach_data([]);
+        }
       }
     } catch (error) {
       console.error("Error fetching weather data:", error);
