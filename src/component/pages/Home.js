@@ -10,6 +10,10 @@ function Home() {
 
   const fetchWeatherData = async (query, id = null) => {
     if (!query && !id) return;
+    if (process.env.REACT_APP_WEATHER_API_KEY) {
+      alert("Api key not found");
+      return;
+    }
 
     setLoading(true);
 
